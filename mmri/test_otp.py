@@ -35,7 +35,6 @@ class TestClass(TestBase):
             'mode': 'WALK,TRANSIT',
             'walkSpeed': 1.389,
             'numItineraries': 1,
-            'disableRemainingWeightHeuristic': True,
             'nonpreferredTransferPenalty': 30,
             'otherThanPreferredRoutesPenalty': 0,
             'walkBoardCost': 0,
