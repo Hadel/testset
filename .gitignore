@@ -23,11 +23,9 @@
 /docs/.build/
 
 # GTFS Build
-/data/gtfs/results
-/data/gtfs/*.zip
-/data/gtfs/**/*.gtfsdb
+alltests.zip
 /scripts/tests
-/scripts/alltests.zip
+/tests/results/
 
 # Latex
 *.acn
