@@ -601,7 +601,7 @@ Depart & From & \hspace{0.4cm} & To & Arrive \\
 \subsubsection*{Network description and Timetable}
 Stop-to-Stop transfers can be found at stations and stopplaces.
 Typically this means that there is should be time reserved to alight and board between a trip departing at the same stop place.
-The dwell time for the transfer is defined, or can be reduced to zero if enough time is available to make the transfer.
+The transfer slack for the transfer is defined, or can be reduced to zero if enough time is available to make the transfer.
 
 \begin{figure}[h]
 \vspace{1em}
@@ -633,7 +633,7 @@ The dwell time for the transfer is defined, or can be reduced to zero if enough 
     (3) edge [draw=blue,densely dotted] node {} (5);
 
   \draw[very thick] (0,2)--(0,1.4);
-  \node[] (dwell) [above=1.6cm of 3] {dwell time: 0s};
+  \node[] (slack) [above=1.6cm of 3] {transfer slack: 0s};
 \end{tikzpicture}
 \end{minipage}
 \label{fig:singlemodality_network}
@@ -642,7 +642,7 @@ The dwell time for the transfer is defined, or can be reduced to zero if enough 
 
 \subsubsection*{Synthetic Tests}
 \begin{enumerate}
-\item \textbf{given} a default dwell time of 60 seconds and a specified dwell time of 0 seconds at stop 3, \textbf{depart} at 00:01 from stop 1 heading to stop 4.
+\item \textbf{given} a default transfer slack of 60 seconds and a specified transfer slack of 0 seconds at stop 3, \textbf{depart} at 00:01 from stop 1 heading to stop 4.
 \end{enumerate}
 
 \subsubsection*{Expected Results}
