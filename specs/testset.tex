@@ -37,9 +37,10 @@
 
 The numbering in this section corresponds to the numbering of the requirements in the GAP Analysis document and the numbering of the test case implementation.
 
-Note that planning on the transit network is the current scope of the MMRI project, so the testrunner will ignore any walk legs encountered in the result.
+\subsection*{}
+Note: that non-transit planning on the transit network is currently out of scope for the MMRI project, so the testrunner will ignore any walk legs encountered in the result.
 
-
+\newpage
 \subsection{Support all transit modes and agencies}
 
 \begin{enumerate}
@@ -168,7 +169,7 @@ We test if the journey planner is capable to select the expected trip based on a
 Additionally we check the result of the journey planner when a trip is requested on the operating day without service.
 
 \begin{figure}[h]
-\vspace{0.5em}
+\vspace{8em}
 \raggedleft
 \begin{minipage}{225pt}
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
@@ -202,7 +203,7 @@ Additionally we check the result of the journey planner when a trip is requested
 \label{fig:arrival_departure_network}
 \vspace{-1.5em}
 \end{figure}
-
+\newpage
 \subsubsection*{Synthetic Tests}
 \begin{enumerate}
 \item on 2014-01-01 \textbf{depart} at 00:02 from stop 1 heading to stop 2.
@@ -382,7 +383,7 @@ The only possible option is to board the first trip between stop 3 and 4, transf
 \label{fig:modalities_network}
 \vspace{-0em}
 \end{figure}
-
+\newpage
 \subsubsection*{Synthetic Tests}
 \begin{enumerate}
 \item \textbf{depart} at 00:01 from stop 1 heading to stop 2.
@@ -672,7 +673,7 @@ In a dynamic scenario a trip-to-trip transfer is guaranteed as if the last arriv
 This has realtime prediction implications which may delay the waiting trip.
 
 \begin{figure}[h]
-\vspace{1em}
+\vspace{4em}
 \raggedleft
 \begin{minipage}{265pt}
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
@@ -710,7 +711,7 @@ This has realtime prediction implications which may delay the waiting trip.
 \label{fig:triptotrip_network}
 \vspace{0em}
 \end{figure}
-
+\newpage
 \subsubsection*{Synthetic Tests}
 \begin{enumerate}
 \item \textbf{given} a \textit{preferred} transfer from trip 1 to trip 2 at stop 3, \textbf{depart} at 00:01 from stop 1 heading to stop 6.
@@ -718,8 +719,6 @@ This has realtime prediction implications which may delay the waiting trip.
 \item \textbf{given} a \textit{forbidden} transfer from trip 1 to trip 2 at stop 3, \textbf{depart} at 00:01 from stop 1 heading to stop 6.
 \item \textbf{given} a \textit{forbidden} transfer from trip 1 to trip 2 at stop 4, \textbf{depart} at 00:01 from stop 1 heading to stop 6.
 \end{enumerate}
-
-\newpage
 
 \subsubsection*{Expected Results}
 \begin{enumerate}
@@ -1041,19 +1040,18 @@ Depart & From & \hspace{0.4cm} & To & Arrive \\
 
 
 %%%%%%%%%%%%%%%
-
+\newpage
 \item \textit{The journey planner is capable of excluding trips from travel advice.}
-
-\todo {include a test of user based trip exclusion}
 
 \subsubsection*{Network description and Timetable}
 The network consists of two stops, and two routes.
-The first trip is is canceled by KV17, therefore it cannot be planned.
+The first trip is is canceled either using KV17 (automaticly) or by tripbanning based on the route/trip pair.
+The consequence is the same: the trip cannot be planned.
 
 \begin{figure}[h]
 \vspace{1em}
 \raggedleft
-\begin{minipage}{255pt}
+\begin{minipage}{293pt}
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
   thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
 
@@ -1063,7 +1061,7 @@ The first trip is is canceled by KV17, therefore it cannot be planned.
   \node[] (1c) [below=.1pt of 1b] {00:03};
   \node[] (2b) [below=.2cm of 2] {00:02};
   \node[] (2c) [below=.1pt of 2b] {00:04};
-  \node[] (17) [left=.2cm of 1b] {\tiny KV17 cancel};
+  \node[] (17) [left=.2cm of 1b] {\tiny KV17 cancel / Trip Banning};
 
   \path (1) edge node {} (2);
 \end{tikzpicture}
@@ -1074,11 +1072,23 @@ The first trip is is canceled by KV17, therefore it cannot be planned.
 
 \subsubsection*{Synthetic Tests}
 \begin{enumerate}
-\item \textbf{depart} at 00:01 from Stop 1 heading Stop 2 exclude route 1.
+\item \textbf{depart} at 00:01 from Stop 1 heading Stop 2 exclude route 1, use a KV17 cancel message.
+\item \textbf{depart} at 00:01 from Stop 1 heading Stop 2 exclude route 1, use trip banning based on the route and trip.
 \end{enumerate}
 
 \subsubsection*{Expected Results}
 \begin{enumerate}
+\item
+{\scriptsize
+\begin{tabular}{p{.75cm} | p{3.0cm} c p{3.0cm} | p{.75cm} }
+\hline
+\rowcolor{Gray}
+Depart & From & \hspace{0.4cm} & To & Arrive \\
+\hline
+00:03 & Stop 1 & \bus & Stop 2 & 00:04 \\
+\hline
+\end{tabular}
+}
 \item
 {\scriptsize
 \begin{tabular}{p{.75cm} | p{3.0cm} c p{3.0cm} | p{.75cm} }
@@ -1318,7 +1328,7 @@ These test cases describe functionality on layer 2, the data layer. The current 
 
 Only the transit network is currently in scope for the MMRI project. The requirements of this section are not tested.
 
-
+\newpage
 \section{Informative tests}
 \label{sec:nonunit}
 
@@ -1378,7 +1388,7 @@ It's similar to test 2a, except with the difference that there's no fourth trip 
 \label{fig:modalities_network}
 \vspace{-0em}
 \end{figure}
-
+\newpage
 \subsubsection*{Synthetic Tests}
 \begin{enumerate}
 \item \textbf{depart} at 00:02 from stop 3 heading to stop 6.
