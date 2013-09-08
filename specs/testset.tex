@@ -826,7 +826,7 @@ The user queries at the edge of the network between the first and second stop, w
 
 \subsubsection*{Synthetic Tests}
 \begin{enumerate}
-\item \textbf{depart} from trip 1 heading stop 2.
+\item \textbf{depart} in transit on trip 1 at 00:02 heading stop 2.
 \end{enumerate}
 
 \subsubsection*{Expected Results}
@@ -843,11 +843,11 @@ Depart & From & \hspace{0.4cm} & To & Arrive \\
 00:06 & Stop 3 & \train & Stop 2 & 00:09 \\
 \hline
 \end{tabular}
+\\
+\tiny{\textit{Note: The initial departure time and stop is open to the planner to fill in. The trip and request time \textbf{must} be provided.}}
 }
 \end{enumerate}
 
-
-* The initial departure time and stop is open to the planner to fill in. The trip MUST be mentioned though.
 
 \end{enumerate}
 \newpage
