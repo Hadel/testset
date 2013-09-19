@@ -867,9 +867,9 @@ The ability to automatic load KV1 files is guaranteed using this testset.\\
 \item \textit{The journey planner is capable to process unplanned changes in the regular publications automatically.}
 
 \subsubsection*{Network description and Timetable}
-The network consists of two stops, with a ten minute interval service, we present two trips.
-The first trip has an initial delay of 10 minutes, the second trip has an intial lag of one minute.
-The test determines which trip is prefered.
+The network consists of two stops, and two trips on the same route.
+The earlier trip is is cancelled using KV17 (automatically) or by banning a route/trip pair.
+In both cases, the consequence is the same: the earlier trip is unavailable, so the later trip is used.
 
 \begin{figure}[h]
 \vspace{1em}
